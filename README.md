@@ -1,0 +1,94 @@
+# Buscador de series de anime
+
+Buscador de series de anime que utiliza una API pública y te permite guardar tus animes favoritos. Puedes añadir o quitar los favoritos y estos se guardan en el local storage de tu navegador.
+
+Es un ejercicio de evaluación de Vanilla JS con unos [determinados requisitos](#requisitos).
+
+[![Autor](https://img.shields.io/badge/autor-Paula%20Perera-red)](https://github.com/PaulaEPR)
+![GitHub License](https://img.shields.io/github/license/PaulaEPR/buscador-series-anime)
+
+![Desktop Version](./public/readme/preview.jpg)
+
+## Migración
+
+Esto es un proyecto antiguo (2021) que ya no funcionaba debido a la actualización de la API de la [v3](https://jikan.docs.apiary.io/#) a la [v4](https://docs.api.jikan.moe/). Aparte, usaba Gulp para automatizar tareas que es una herramienta obsoleta a día de hoy. Por lo que además de actualizar la llamada a la versión actual de la API también reemplaza las dependencias que se han quedado obsoletas.
+
+Dado que es un proyecto pequeño, la herramienta más adecuada para sustituir lo que hacía Gulp en el proyecto es Vite. La escojo por su sencillez y descarto otras opciones como Webpack.
+
+**Fases:**
+- Migración a Vite con cambios mínimos en el código, sólo lo estrictamente necesario para adaptarse a Vite y actualizar la versión de la API
+- Modernización del código (llamada a la API, SCSS moderno)
+
+---
+
+## Instalación y configuración
+
+**Requerimientos:** Necesitas tener `node` y `npm` instalados.
+
+1. Clonar el repositorio
+
+    ```
+    git clone URL
+    ```
+
+2. Instalar las dependencias
+
+    ```
+    npm install
+    ```
+
+3. Ejecutar la aplicación
+
+    ```
+    npm run dev
+    ```
+
+Ve a [http://localhost:5173](http://localhost:5173) para ver la app en el navegador.
+
+---
+
+## Requisitos
+
+El ejercicio consiste en hacer un buscador de series en Javascript con los siguientes requerimientos:
+
+#### 1. Estructura básica
+
+- [x]  Un campo de texto y un botón para buscar series por su título.
+- [x]  Un listado de resultados de búsqueda donde aparece el cartel de la serie y el título.
+
+#### 2. Búsqueda
+
+- [x]  Al hacer clic sobre el botón de Buscar, la aplicación debe conectarse a la [API](https://jikan.docs.apiary.io/#reference/0/search/search-request-example+schema?console=1)
+- [x]  Para construir la URL de búsqueda hay que recoger el texto que ha introducido la usuaria en el
+campo de búsqueda.
+- [x]  Por cada serie contenido en el resultado de la búsqueda hay que pintar una tarjeta donde mostramos una imagen de la serie y el título.
+- [x]  Algunas de las series que devuelve el API no tienen imagen. En ese caso hay que mostrar una imagen de relleno.
+- [x]  Para pintar la información en la página se puede elegir entre hacerlo de forma básica con innerHTML o manipulando de forma avanzada el DOM.
+
+#### 3. Favoritos
+
+Al hacer clic sobre una serie debe pasar lo siguiente:
+
+- [x]  El color de fondo y el de fuente se intercambian, indicando que es una serie favorita.
+- [x]  Hay que mostrar un listado en la parte izquierda de la pantalla, debajo del formulario de búsqueda, con las series favoritas.
+- [x]  Os recomendamos crear un variable o constante de tipo array en JS para almacenar las series favoritas.
+- [x]  Las series favoritas deben seguir apareciendo a la izquierda aunque la usuaria realice otra búsqueda.
+
+#### 4. Almacenamiento local
+
+- [x]  Hay que almacenar el listado de favoritos en el localStorage.
+- [x]  Al recargar la página el listado de favoritos debe mostrarse.
+
+#### 5. BONUS: Borrar favoritos
+
+- [x]  Al hacer clic sobre el icono de una 'x' al lado de cada favorito, hay que borrar el favorito clicado de la lista y del localStorage.
+- [x]  Poder añadir/quitar como favorito al hacer clic sobre una serie del lado de la derecha.
+- [x]  Si realizamos una nueva búsqueda y sale una serie que ya es favorita, aparezca ya resaltada en los resultados de búsqueda (con colores de fondo y texto intercambiados).
+- [x]  Al final de la lista de favoritos haya un botón para borrar todos los favoritos a la vez.
+
+#### 6. BONUS: Afinar la maquetación
+
+- [x]  Libertad para decidir los estilos.
+
+**Ejemplo de maquetación**
+![Mockup](./public/readme/mockup.png)

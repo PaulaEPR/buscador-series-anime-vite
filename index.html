@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buscador de series de anime</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Otomanopee+One&family=Titillium+Web&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header__title">Buscador de animes</h1>
+      <form action="#" method="post" class="search js-search">
+        <input
+          type="search"
+          name="anime-search"
+          id="anime-search"
+          class="search__input js-input"
+          placeholder="Naruto..."
+          spellcheck="false"
+          minlength="3"
+          autofocus
+          required
+        />
+        <button type="submit" class="search__button button">
+          <img
+            src="/src/assets/icons/search.svg"
+            alt="submit"
+            class="icon--button"
+          /><span class="button__title">Buscar</span>
+        </button>
+        <button type="reset" class="search__button button">
+          <img
+            src="/src/assets/icons/reset.svg"
+            alt="reset"
+            class="icon--button"
+          /><span class="button__title">Reset</span>
+        </button>
+      </form>
+    </header>
+    <main class="main">
+      <section class="main__fav js-main-fav">
+        <header class="main__fav--header">
+          <img
+            src="/src/assets/icons/favs.svg"
+            alt="favs"
+            class="icon--section"
+          />
+          <h2 class="main__fav--title">Favs</h2>
+          <button type="reset" class="main__fav--button button js-delete-all">
+            <img
+              src="/src/assets/icons/delete.svg"
+              alt="delete"
+              class="icon--button"
+            /><span class="button__title">Todos</span>
+          </button>
+        </header>
+        <section class="fav js-favorites"></section>
+      </section>
+      <section class="main__res js-main-res">
+        <header class="main__res--header">
+          <img
+            src="/src/assets/icons/results.svg"
+            alt="results"
+            class="icon--section"
+          />
+          <h2 class="main__res--title">Resultados</h2>
+        </header>
+        <section class="res js-results"></section>
+      </section>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+
+  </body>
+</html>

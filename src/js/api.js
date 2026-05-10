@@ -4,14 +4,17 @@ import { checkSelected } from "./helpers";
 
 /* --- Get data form API --- */
 
-export function getData() {
-  const query = dom.input.value.replace(' ', '%20');
+export async function getData() {
+  const query = encodeURIComponent(dom.input.value);
   const apiURL = `https://api.jikan.moe/v4/anime?q=${query}`;
-  fetch(apiURL)
-    .then((response) => response.json())
-    .then((data) => {
-      state.result = data.data;
-      createResults();
-      checkSelected();
-    });
+
+  try {
+    const response = await fetch(apiURL);
+    const data = await response.json();
+    state.result = data.data;
+    createResults();
+    checkSelected();
+  } catch (error) {
+    console.error('Error fetching data: ', error);
+  }
 }
